@@ -41,3 +41,7 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export type PropsWithClassName<T = Record<string, unknown>> = T & {
+    className?: string;
+};

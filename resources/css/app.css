@@ -10,10 +10,27 @@
 @theme {
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'Silkscreen', ui-monospace, monospace;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
+
+    --color-brand-blue: var(--brand-blue);
+    --color-brand-green: var(--brand-green);
+    --color-brand-yellow: var(--brand-yellow);
+    --color-brand-red: var(--brand-red);
+    --color-neutral-50: var(--neutral-50);
+    --color-neutral-100: var(--neutral-100);
+    --color-neutral-200: var(--neutral-200);
+    --color-neutral-300: var(--neutral-300);
+    --color-neutral-400: var(--neutral-400);
+    --color-neutral-500: var(--neutral-500);
+    --color-neutral-600: var(--neutral-600);
+    --color-neutral-700: var(--neutral-700);
+    --color-neutral-800: var(--neutral-800);
+    --color-neutral-900: var(--neutral-900);
+    --color-neutral-950: var(--neutral-950);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -23,21 +40,6 @@
 
     --color-popover: var(--popover);
     --color-popover-foreground: var(--popover-foreground);
-
-    --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
-
-    --color-accent: var(--accent);
-    --color-accent-foreground: var(--accent-foreground);
-
-    --color-destructive: var(--destructive);
-    --color-destructive-foreground: var(--destructive-foreground);
 
     --color-border: var(--border);
     --color-input: var(--input);
@@ -78,22 +80,27 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --brand-blue: oklch(0.2523 0.1105 265.96);
+    --brand-green: oklch(0.3059 0.075368 123.3546);
+    --brand-yellow: oklch(0.7302 0.1658 43.66);
+    --brand-red: oklch(0.6046 0.2365 30.85);
+    --neutral-50: oklch(0.97 0.02 25);
+    --neutral-100: oklch(0.915 0.04 25);
+    --neutral-200: oklch(0.825 0.06 25);
+    --neutral-300: oklch(0.72 0.06 25);
+    --neutral-400: oklch(0.595 0.06 25);
+    --neutral-500: oklch(0.485 0.06 25);
+    --neutral-600: oklch(0.44 0.06 25);
+    --neutral-700: oklch(0.35 0.06 25);
+    --neutral-800: oklch(0.28 0.06 25);
+    --neutral-900: oklch(0.205 0.06 25);
+    --neutral-950: oklch(0.135 0.06 25);
+    --background: var(--neutral-50);
+    --foreground: var(--neutral-950);
+    --card: var(--neutral-50);
+    --card-foreground: var(--neutral-950);
+    --popover: var(--neutral-50);
+    --popover-foreground: var(--neutral-950);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
     --ring: oklch(0.87 0 0);
@@ -114,22 +121,12 @@
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
-    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --background: var(--neutral-950);
+    --foreground: var(--neutral-50);
+    --card: var(--neutral-950);
+    --card-foreground: var(--neutral-50);
+    --popover: var(--neutral-950);
+    --popover-foreground: var(--neutral-50);
     --border: oklch(0.269 0 0);
     --input: oklch(0.269 0 0);
     --ring: oklch(0.439 0 0);
@@ -155,5 +152,11 @@
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    .bg {
+        background-image: url('../images/bg.webp');
+        background-size: cover;
+        background-position: center;
     }
 }
