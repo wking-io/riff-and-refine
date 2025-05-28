@@ -17,7 +17,7 @@ export default function Welcome() {
                         <img
                             src={`${appUrl}/cover.webp`}
                             alt="Cover"
-                            className="ring-brand-blue/60 shadow-brand-blue/30 w-full shadow-lg ring-1 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                            className="ring-brand-blue/60 shadow-brand-blue/30 aspect-square w-full shadow-lg ring-1 backdrop-blur-3xl transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
                         />
                     </picture>
                     <div className="mt-3 flex w-full justify-between font-mono text-2xl opacity-90 mix-blend-screen">

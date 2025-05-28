@@ -155,14 +155,18 @@
     }
 
     .bg {
-        background-image: url('https://picperf.io/https://media.riffandrefine.fm/bg.webp');
+        background-image:
+            url('https://picperf.io/https://media.riffandrefine.fm/bg.webp'),
+            linear-gradient(to bottom right, var(--brand-blue), var(--brand-green), var(--brand-red), var(--brand-yellow));
         background-size: cover;
         background-position: center;
     }
 
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .bg {
-            background-image: url('https://picperf.io/https://media.riffandrefine.fm/bg@2x.webp');
+            background-image:
+                url('https://picperf.io/https://media.riffandrefine.fm/bg@2x.webp'),
+                linear-gradient(to bottom right, var(--brand-blue), var(--brand-green), var(--brand-red), var(--brand-yellow));
         }
     }
 }
