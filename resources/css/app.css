@@ -155,8 +155,14 @@
     }
 
     .bg {
-        background-image: url('../images/bg.webp');
+        background-image: url('https://media.riffandrefine.fm/bg.webp');
         background-size: cover;
         background-position: center;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .bg {
+            background-image: url('https://media.riffandrefine.fm/bg@2x.webp');
+        }
     }
 }

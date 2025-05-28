@@ -1,7 +1,7 @@
 import { TextScramble, TextScrambleProvider } from '@/components/ui/text-scramble';
-import cover from '@images/cover.webp?url';
-import cover2x from '@images/cover@2x.webp?url';
 import { Head } from '@inertiajs/react';
+
+const appUrl = 'https://media.riffandrefine.fm';
 
 export default function Welcome() {
     return (
@@ -13,9 +13,9 @@ export default function Welcome() {
             <div className="bg flex h-dvh flex-col items-center justify-center">
                 <div>
                     <picture>
-                        <source srcSet={`${cover} 1x, ${cover2x} 2x`} type="image/webp" />
+                        <source srcSet={`${appUrl}/cover.webp 1x, ${appUrl}/cover@2x.webp 2x`} type="image/webp" />
                         <img
-                            src={cover}
+                            src={`${appUrl}/cover.webp`}
                             alt="Cover"
                             className="ring-brand-blue/60 shadow-brand-blue/30 shadow-lg ring-1 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
                         />

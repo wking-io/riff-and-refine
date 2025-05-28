@@ -15,6 +15,24 @@ class ConvertToWebp extends Command
 
     protected $description = 'Convert a PNG image to WebP at original and half sizes (lossless)';
 
+    private function convertToWebp(string $inputPath, string $outputPath): void
+    {
+        $process = new Process([
+            'cwebp',
+            $inputPath,
+            '-o',
+            $outputPath,
+            '-q',
+            '100',
+        ]);
+
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new \RuntimeException("cwebp failed: " . $process->getErrorOutput());
+        }
+    }
+
     public function handle(): int
     {
         $inputFile = $this->argument('input');
@@ -31,40 +49,22 @@ class ConvertToWebp extends Command
 
         // Create full size version (capped at max-width)
         $fullSizeOutput = "$inputDir/{$outputName}@2x.webp";
-        $process = new Process([
-            'ffmpeg',
-            '-i',
-            $inputPath,
-            '-vf',
-            "scale='min({$maxWidth},iw)':-1",
-            '-compression_level',
-            '6',
-            '-lossless',
-            '1',
-            $fullSizeOutput
-        ]);
-
-        $process->run();
-
-        if (!$process->isSuccessful()) {
-            $this->error("FFmpeg failed: " . $process->getErrorOutput());
+        try {
+            $this->convertToWebp($inputPath, $fullSizeOutput);
+            $this->info("Created: $fullSizeOutput");
+        } catch (\RuntimeException $e) {
+            $this->error($e->getMessage());
             return 1;
         }
 
-        $this->info("Created: $fullSizeOutput");
-
         // Create half size version
-        $halfSizeOutput = "$inputDir/{$outputName}.webp";
+        $halfSizeOutput = "$inputDir/{$outputName}@0.5x.png";
         $process = new Process([
             'ffmpeg',
             '-i',
             $inputPath,
             '-vf',
             'scale=iw/2:-1',
-            '-compression_level',
-            '6',
-            '-lossless',
-            '1',
             $halfSizeOutput
         ]);
 
@@ -75,7 +75,10 @@ class ConvertToWebp extends Command
             return 1;
         }
 
-        $this->info("Created: $halfSizeOutput");
+        $halfSizeFinalOutput = "$inputDir/{$outputName}.webp";
+        $this->convertToWebp($halfSizeOutput, $halfSizeFinalOutput);
+
+        $this->info("Created: $halfSizeFinalOutput");
 
         return 0;
     }
