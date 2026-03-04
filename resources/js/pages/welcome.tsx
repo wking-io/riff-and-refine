@@ -54,7 +54,7 @@ export default function Welcome() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Check out our live show every Friday at 2:30pm EST on YouTube
+                            Check out our live show every Wednesday at 1pm EST on YouTube
                         </a>{' '}
                         and let's have fun. If you miss any of the shows you can hop on our newsletter below to get summaries, project updates, and
                         more every week.
