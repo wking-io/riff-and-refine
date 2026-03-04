@@ -26,7 +26,7 @@ export default function Welcome() {
 
     return (
         <>
-            <Head title="Coming Soon">
+            <Head title="Riff and Refine - A live show with Josh Cirre and Will King">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
